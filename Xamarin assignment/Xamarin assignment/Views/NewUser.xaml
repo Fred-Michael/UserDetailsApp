@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xamarin_assignment.NewUser"
+             Title="New User page"
+             xmlns:vm="clr-namespace:Xamarin_assignment.ViewModels"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+
+    <ContentPage.BindingContext>
+        <vm:NewUserVM />
+    </ContentPage.BindingContext>
+
+    <StackLayout Spacing="3" Padding="15">
+        <Image x:Name="User_pic"
+               Source="{Binding UserImage}"
+               HorizontalOptions="Center">
+            <Image.Clip>
+                <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50" />
+            </Image.Clip>
+        </Image>
+        
+        <Label Text="Name" HorizontalTextAlignment="Start" FontSize="Small"/>
+        <Entry Placeholder="Enter your full name" 
+               x:Name="user_name" 
+               Text="{Binding Name}"
+               TextColor="{StaticResource blueColor}"/>
+
+        <Label Text="Sex" HorizontalTextAlignment="Start" FontSize="Small"/>
+        <Picker x:Name="Sex_picker"
+                Title="Select your Sex"
+                ItemsSource="{Binding UserSexList}"
+                SelectedItem="{Binding SelectedSex}"
+                TextColor="{StaticResource blueColor}" />
+
+        <Label Text="Address" HorizontalTextAlignment="Start" FontSize="Small"/>
+        <Entry Placeholder="Enter your address" 
+               x:Name="user_address" 
+               Text="{Binding Address}"
+               TextColor="{StaticResource blueColor}" />
+
+        <Label Text="Phone number" HorizontalTextAlignment="Start" FontSize="Small"/>
+        <Entry Placeholder="Enter your mobile number" 
+               x:Name="user_number" 
+               Keyboard="Telephone" 
+               Text="{Binding PhoneNumber}"
+               TextColor="{StaticResource blueColor}"/>
+
+        <Button x:Name="addUserPictureButton" 
+                Text="Add Picture"
+                Command="{Binding AddUserPictureCommand}"
+                BackgroundColor="{StaticResource blueColor}"/>
+
+        <Button x:Name="saveUserButton" 
+                Text="Save"
+                Command="{Binding SaveUserCommand}"
+                BackgroundColor="{StaticResource blueColor}"/>
+    </StackLayout>
+</ContentPage>

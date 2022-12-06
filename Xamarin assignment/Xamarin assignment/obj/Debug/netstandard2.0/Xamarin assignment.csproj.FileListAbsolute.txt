@@ -1,0 +1,17 @@
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\bin\Debug\netstandard2.0\Xamarin assignment.deps.json
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\bin\Debug\netstandard2.0\Xamarin assignment.dll
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\bin\Debug\netstandard2.0\ref\Xamarin assignment.dll
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\bin\Debug\netstandard2.0\Xamarin assignment.pdb
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin assignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Views\App.xaml.g.cs
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Views\NewUser.xaml.g.cs
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Views\UserDetails.xaml.g.cs
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin assignment.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin assignment.AssemblyInfo.cs
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin assignment.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin assignment.dll
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\ref\Xamarin assignment.dll
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin assignment.pdb
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin assignment.csproj.AssemblyReference.cache

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xamarin_assignment.Views.UserDetails"
+             Title="User Details"
+             xmlns:vm="clr-namespace:Xamarin_assignment.ViewModels"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+
+    <ContentPage.BindingContext>
+        <vm:UserDetailsVM />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Edit your Name" 
+                x:Name="update_user_name" 
+                Text="{Binding Name}"
+                TextColor="{StaticResource blueColor}"/>
+
+            <Entry Placeholder="Edit your address" 
+               x:Name="update_user_address" 
+               Text="{Binding Address}"
+               TextColor="{StaticResource blueColor}" />
+
+            <!--<Entry Placeholder="Indicate your sex with a 'M' or 'F'" 
+               x:Name="update_user_sex" 
+               TextColor="{StaticResource blueColor}"/>-->
+            <!--<Picker x:Name="update_sex_picker"
+                Title="Select your Sex"
+                ItemsSource="{Binding UserSexList}"
+                SelectedItem="{Binding SelectedSex}"
+                TextColor="{StaticResource blueColor}" />-->
+
+            <Entry Placeholder="Edit your phone number" 
+               x:Name="update_user_number" 
+               Keyboard="Telephone" 
+               Text="{Binding PhoneNumber}"
+               TextColor="{StaticResource blueColor}" />
+
+            <Button x:Name="update_user_button" 
+                Text="Update"
+                Command="{Binding UpdateUserCommand}"
+                BackgroundColor="{StaticResource blueColor}"/>
+
+            <Button x:Name="delete_user_button" 
+                Text="Delete"
+                Command="{Binding DeleteUserCommand}"
+                BackgroundColor="{StaticResource blueColor}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
