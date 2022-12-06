@@ -7,10 +7,6 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" x:DataType="vm:UserDetailsVM"
              ios:Page.UseSafeArea="true">
 
-    <!--<ContentPage.BindingContext>
-        <vm:UserDetailsVM />
-    </ContentPage.BindingContext>-->
-    
     <ContentPage.Content>
         <StackLayout>
             <Entry Placeholder="Edit your Name" 
@@ -23,9 +19,6 @@
                Text="{Binding Address}"
                TextColor="{StaticResource blueColor}" />
 
-            <!--<Entry Placeholder="Indicate your sex with a 'M' or 'F'" 
-               x:Name="update_user_sex" 
-               TextColor="{StaticResource blueColor}"/>-->
             <!--<Picker x:Name="update_sex_picker"
                 Title="Select your Sex"
                 ItemsSource="{Binding UserSexList}"
