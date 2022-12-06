@@ -54,7 +54,7 @@ namespace Xamarin_assignment.ViewModels
 
         private User _selectedUser;
         public User SelectedUser
-        { 
+        {
             set { _selectedUser = value; OnPropertyChanged(); }
             get { return _selectedUser; }
         }

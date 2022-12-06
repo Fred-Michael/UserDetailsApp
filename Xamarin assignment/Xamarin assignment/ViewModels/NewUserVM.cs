@@ -46,11 +46,11 @@ namespace Xamarin_assignment.ViewModels
         public string SelectedSex
         {
             get { return _selectedSex; }
-            set 
+            set
             {
                 if (_selectedSex != value)
                 {
-                    _selectedSex = value; 
+                    _selectedSex = value;
                     OnPropertyChanged();
                 }
             }
