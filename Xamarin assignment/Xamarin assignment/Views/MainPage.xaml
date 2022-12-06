@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Xamarin_assignment.MainPage"
              xmlns:vm="clr-namespace:Xamarin_assignment.ViewModels"
+             Title="MainPage"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true">
 
@@ -17,13 +18,12 @@
     <StackLayout>
         <Label Text="List of users" FontSize="Large" HorizontalTextAlignment="Center" Margin="0, 20"/>
 
-        <ListView x:Name="usersListView">
+        <ListView x:Name="usersListView" ItemSelected="usersListView_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" 
-                              TextColor="{StaticResource blueColor}"
-                              Command="{Binding SelectedUserCommand}"
-                              CommandParameter="{Binding SelectedItem}"/>
+                    <TextCell 
+                        Text="{Binding Name}" 
+                        TextColor="{StaticResource blueColor}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

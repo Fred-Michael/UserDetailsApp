@@ -4,12 +4,12 @@
              x:Class="Xamarin_assignment.Views.UserDetails"
              Title="User Details"
              xmlns:vm="clr-namespace:Xamarin_assignment.ViewModels"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" x:DataType="vm:UserDetailsVM"
              ios:Page.UseSafeArea="true">
 
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <vm:UserDetailsVM />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     
     <ContentPage.Content>
         <StackLayout>

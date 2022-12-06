@@ -1,20 +1,21 @@
-﻿using System.ComponentModel;
+﻿using SQLite;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using Xamarin_assignment.Models;
 
 namespace Xamarin_assignment.ViewModels
 {
-    public class UserDetailsVM : ContentPage, INotifyPropertyChanged
+    public class UserDetailsVM : INotifyPropertyChanged
     {
         public Command UpdateUserCommand { get; set; }
         public Command DeleteUserCommand { get; set; }
 
-        //public event PropertyChangedEventHandler PropertyChanged;
-        //protected override void OnPropertyChanged([CallerMemberName] string name = null)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        //}
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
 
         private User _user;
         public User User
@@ -51,48 +52,75 @@ namespace Xamarin_assignment.ViewModels
             get { return _phoneNumber; }
         }
 
-        //private User _selectedUser { get; set; }
-        public User _selectedUser { get; set; }
-
-        public UserDetailsVM()
-        {
-            //_selectedUser = selectedUser;
-            UpdateUserCommand = new Command(UpdateUser);
-            DeleteUserCommand = new Command(DeleteUser);
+        private User _selectedUser;
+        public User SelectedUser
+        { 
+            set { _selectedUser = value; OnPropertyChanged(); }
+            get { return _selectedUser; }
         }
 
-        protected override void OnAppearing()
+        public UserDetailsVM(User selectedUser)
         {
-            base.OnAppearing();
+            _selectedUser = selectedUser;
+            UpdateUserCommand = new Command(UpdateUser);
+            DeleteUserCommand = new Command(DeleteUser);
+
             SetFields(_selectedUser);
         }
 
-        private void UpdateUser()
+        private async void UpdateUser()
         {
+            var updatedUser = UpdateFields();
+            using (SQLiteConnection conn = new SQLiteConnection(App.databaseLocation))
+            {
+                var choice = await App.Current.MainPage.DisplayAlert(
+                    "Update User",
+                    $"Are you sure you want to update this record?",
+                    "Yes",
+                    "No");
 
+                if (choice)
+                {
+                    conn.Update(updatedUser);
+                    await App.Current.MainPage.Navigation.PopToRootAsync();
+                }
+            }
         }
 
-        private void DeleteUser()
+        private async void DeleteUser()
         {
+            using (SQLiteConnection conn = new SQLiteConnection(App.databaseLocation))
+            {
+                var choice = await App.Current.MainPage.DisplayAlert(
+                    "Delete User",
+                    $"Are you sure you want to delete {_selectedUser.Name}?",
+                    "Yes",
+                    "No");
 
+                if (choice)
+                {
+                    conn.Delete(_selectedUser);
+                    await App.Current.MainPage.Navigation.PopToRootAsync();
+                }
+            }
         }
 
         private void SetFields(User user)
         {
-            Name = user.Name;
-            Address = user.Address;
-            Sex = user.Sex;
-            PhoneNumber = user.PhoneNumber;
+            Name = user == null ? "" : user.Name;
+            Address = user == null ? "" : user.Address;
+            //Sex = user.Sex;
+            PhoneNumber = user == null ? "" : user.PhoneNumber;
         }
 
-        //private User UpdateFields()
-        //{
-        //    _selectedUser.Name = update_user_name.Text;
-        //    _selectedUser.Address = update_user_address.Text;
-        //    _selectedUser.Sex = update_user_sex.Text;
-        //    _selectedUser.PhoneNumber = update_user_number.Text;
-        //    return _selectedUser;
-        //}
+        private User UpdateFields()
+        {
+            _selectedUser.Name = Name;
+            _selectedUser.Address = Address;
+            //_selectedUser.Sex = update_user_sex.Text;
+            _selectedUser.PhoneNumber = PhoneNumber;
+            return _selectedUser;
+        }
 
     }
 }

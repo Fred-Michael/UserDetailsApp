@@ -1,22 +1,17 @@
 ﻿using SQLite;
 using Xamarin.Forms;
 using Xamarin_assignment.Models;
+using Xamarin_assignment.ViewModels;
 using Xamarin_assignment.Views;
 
 namespace Xamarin_assignment
 {
     public partial class MainPage : ContentPage
     {
-        //private readonly IUserService _userService;
-        //public MainPage(IUserService userService)
-        //{
-        //    InitializeComponent();
-        //    _userService = userService;
-        //}
-
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new MainPageVM();
         }
 
         protected override void OnAppearing()
@@ -36,7 +31,8 @@ namespace Xamarin_assignment
         {
             if (usersListView.SelectedItem is User selectedUser)
             {
-                Navigation.PushAsync(new UserDetails(selectedUser));
+                UserDetails._selectedUser = selectedUser;
+                Navigation.PushAsync(new UserDetails());
             }
         }
     }

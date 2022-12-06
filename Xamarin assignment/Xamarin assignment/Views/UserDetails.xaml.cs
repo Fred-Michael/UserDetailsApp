@@ -10,38 +10,33 @@ namespace Xamarin_assignment.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserDetails : ContentPage
     {
-        private User _selectedUser;
-        public UserDetails(User selectedUser)
+        public static User _selectedUser { get; set; }
+        public UserDetails()
         {
             InitializeComponent();
-            _selectedUser = selectedUser;
+            //_selectedUser = selectedUser;
             //SetFields(_selectedUser);
-            BindingContext = new UserDetailsVM();
-
-            //try the below:
-            var user = new UserDetailsVM();
-            user._selectedUser = _selectedUser;
-
+            BindingContext = new UserDetailsVM(_selectedUser);
         }
 
-        private async void UpdateUserButton_Clicked(object sender, EventArgs e)
-        {
-            var updatedUser = UpdateFields();
-            using (SQLiteConnection conn = new SQLiteConnection(App.databaseLocation))
-            {
-                var choice = await DisplayAlert(
-                    "Update User",
-                    $"Are you sure you want to update this record?",
-                    "Yes",
-                    "No");
+        //private async void UpdateUserButton_Clicked(object sender, EventArgs e)
+        //{
+        //    var updatedUser = UpdateFields();
+        //    using (SQLiteConnection conn = new SQLiteConnection(App.databaseLocation))
+        //    {
+        //        var choice = await DisplayAlert(
+        //            "Update User",
+        //            $"Are you sure you want to update this record?",
+        //            "Yes",
+        //            "No");
 
-                if (choice)
-                {
-                    conn.Update(updatedUser);
-                    await Navigation.PopToRootAsync();
-                }
-            }
-        }
+        //        if (choice)
+        //        {
+        //            conn.Update(updatedUser);
+        //            await Navigation.PopToRootAsync();
+        //        }
+        //    }
+        //}
 
         private async void DeleteUserButton_Clicked(object sender, EventArgs e)
         {
