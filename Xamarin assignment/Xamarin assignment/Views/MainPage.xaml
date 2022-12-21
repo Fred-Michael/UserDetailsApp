@@ -18,15 +18,26 @@
     <StackLayout>
         <Label Text="List of users" FontSize="Large" HorizontalTextAlignment="Center" Margin="0, 20"/>
 
-        <ListView x:Name="usersListView" ItemSelected="usersListView_ItemSelected">
+        <ListView x:Name="usersListView" ItemsSource="{Binding Payload}" 
+                  ItemSelected="usersListView_ItemSelected"
+                  CachingStrategy="RecycleElement"
+                  RowHeight="60">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell 
+                    <ViewCell>
+                        <StackLayout Margin="5">
+                            <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                            <Label Text="{Binding PhoneNumber}"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <!--<TextCell 
                         Text="{Binding Name}" 
-                        TextColor="{StaticResource blueColor}"/>
+                        TextColor="{StaticResource blueColor}"/>-->
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
 
 </ContentPage>
+
+<!--SelectedItem="{Binding SelectedUser, Mode=TwoWay}"-->
