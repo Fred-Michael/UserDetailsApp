@@ -1,8 +1,8 @@
-﻿using SQLite;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using Xamarin_assignment.Models;
+using Xamarin_assignment.Services;
 
 namespace Xamarin_assignment.ViewModels
 {
@@ -21,42 +21,42 @@ namespace Xamarin_assignment.ViewModels
         public User User
         {
             set { _user = value; OnPropertyChanged(); }
-            get { return _user; }
+            get => _user;
         }
 
         private string _name;
         public string Name
         {
             set { _name = value; OnPropertyChanged(); }
-            get { return _name; }
+            get => _name;
         }
 
         private string _address;
         public string Address
         {
             set { _address = value; OnPropertyChanged(); }
-            get { return _address; }
+            get => _address;
         }
 
         private string _sex;
         public string Sex
         {
             set { _sex = value; OnPropertyChanged(); }
-            get { return _sex; }
+            get => _sex;
         }
 
         private string _phoneNumber;
         public string PhoneNumber
         {
             set { _phoneNumber = value; OnPropertyChanged(); }
-            get { return _phoneNumber; }
+            get => _phoneNumber;
         }
 
         private User _selectedUser;
         public User SelectedUser
         {
             set { _selectedUser = value; OnPropertyChanged(); }
-            get { return _selectedUser; }
+            get => _selectedUser;
         }
 
         public UserDetailsVM(User selectedUser)
@@ -70,39 +70,19 @@ namespace Xamarin_assignment.ViewModels
 
         private async void UpdateUser()
         {
-            var updatedUser = UpdateFields();
-            using (SQLiteConnection conn = new SQLiteConnection(App.databaseLocation))
-            {
-                var choice = await App.Current.MainPage.DisplayAlert(
-                    "Update User",
-                    $"Are you sure you want to update this record?",
-                    "Yes",
-                    "No");
+            User updatedUser = UpdateFields();
+            int result = await UserService.ActionUser(false, updatedUser);
 
-                if (choice)
-                {
-                    conn.Update(updatedUser);
-                    await App.Current.MainPage.Navigation.PopToRootAsync();
-                }
-            }
+            if (result >= 1)
+                await App.Current.MainPage.Navigation.PopToRootAsync();
         }
 
         private async void DeleteUser()
         {
-            using (SQLiteConnection conn = new SQLiteConnection(App.databaseLocation))
-            {
-                var choice = await App.Current.MainPage.DisplayAlert(
-                    "Delete User",
-                    $"Are you sure you want to delete {_selectedUser.Name}?",
-                    "Yes",
-                    "No");
+            int result = await UserService.ActionUser(true, SelectedUser);
 
-                if (choice)
-                {
-                    conn.Delete(_selectedUser);
-                    await App.Current.MainPage.Navigation.PopToRootAsync();
-                }
-            }
+            if (result >= 1)
+                await App.Current.MainPage.Navigation.PopToRootAsync();
         }
 
         private void SetFields(User user)
@@ -121,6 +101,5 @@ namespace Xamarin_assignment.ViewModels
             _selectedUser.PhoneNumber = PhoneNumber;
             return _selectedUser;
         }
-
     }
 }

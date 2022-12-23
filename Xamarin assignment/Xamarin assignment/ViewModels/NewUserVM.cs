@@ -1,6 +1,7 @@
 ﻿using Plugin.Media;
 using SQLite;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
@@ -17,35 +18,42 @@ namespace Xamarin_assignment.ViewModels
         private void OnPropertyChanged([CallerMemberName] string name = null) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
-        private Image _UserImage;
-        public Image UserImage
-        {
-            set { _UserImage = value; OnPropertyChanged(); }
-            get { return _UserImage; }
-        }
-
         private User _user;
         public User User
         {
             set { _user = value; OnPropertyChanged(); }
-            get { return _user; }
+            get => _user;
         }
 
         private string _name;
         public string Name
         {
             set { _name = value; OnPropertyChanged(); }
-            get { return _name; }
+            get => _name;
         }
 
-        private List<string> ListOfSex = new List<string>() { Sex.Female, Sex.Male };
+        //private List<string> ListOfSex = new List<string>() { Sex.Female, Sex.Male };
 
-        public IList<string> UserSexList { get { return ListOfSex; } }
+        //public IList<string> UserSexList { get => ListOfSex; }
+        private ObservableCollection<string> _listOfSex = new ObservableCollection<string> 
+        { 
+            Sex.Female.ToString(), 
+            Sex.Male.ToString()
+        };
+
+        public ObservableCollection<string> UserSexList
+        {
+            get => _listOfSex; 
+            set
+            {
+                _listOfSex = value;
+            }
+        }
 
         private string _selectedSex;
         public string SelectedSex
         {
-            get { return _selectedSex; }
+            get => _selectedSex;
             set
             {
                 if (_selectedSex != value)
@@ -60,20 +68,20 @@ namespace Xamarin_assignment.ViewModels
         public string Address
         {
             set { _address = value; OnPropertyChanged(); }
-            get { return _address; }
+            get => _address;
         }
 
         private string _phoneNumber;
         public string PhoneNumber
         {
             set { _phoneNumber = value; OnPropertyChanged(); }
-            get { return _phoneNumber; }
+            get => _phoneNumber;
         }
 
         public NewUserVM()
         {
             SaveUserCommand = new Command(SaveUser);
-            AddUserPictureCommand = new Command(AddPicture);
+            //AddUserPictureCommand = new Command(AddPicture);
         }
 
         private void SaveUser()
@@ -105,31 +113,31 @@ namespace Xamarin_assignment.ViewModels
             }
         }
 
-        private async void AddPicture()
-        {
-            try
-            {
-                var photo = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions()
-                {
-                    AllowCropping = true,
-                    DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Rear,
-                    Directory = "Xamarin_assignment",
-                    SaveToAlbum = true,
-                    CompressionQuality = 85
-                });
+        //private async void AddPicture()
+        //{
+        //    try
+        //    {
+        //        var photo = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions()
+        //        {
+        //            AllowCropping = true,
+        //            DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Rear,
+        //            Directory = "Xamarin_assignment",
+        //            SaveToAlbum = true,
+        //            CompressionQuality = 85
+        //        });
 
-                if (photo != null)
-                {
-                    UserImage.Source = ImageSource.FromStream(() =>
-                    {
-                        return photo.GetStream();
-                    });
-                }
-            }
-            catch (System.Exception ex)
-            {
-                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
-            }
-        }
+        //        if (photo != null)
+        //        {
+        //            UserImage.Source = ImageSource.FromStream(() =>
+        //            {
+        //                return photo.GetStream();
+        //            });
+        //        }
+        //    }
+        //    catch (System.Exception ex)
+        //    {
+        //        await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+        //    }
+        //}
     }
 }

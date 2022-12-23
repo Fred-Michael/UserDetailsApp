@@ -19,9 +19,9 @@
         <Label Text="List of users" FontSize="Large" HorizontalTextAlignment="Center" Margin="0, 20"/>
 
         <ListView x:Name="usersListView" ItemsSource="{Binding Payload}" 
-                  ItemSelected="usersListView_ItemSelected"
+                  ItemSelected="UsersListView_ItemSelected"
                   CachingStrategy="RecycleElement"
-                  RowHeight="60">
+                  RowHeight="50">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -30,14 +30,9 @@
                             <Label Text="{Binding PhoneNumber}"/>
                         </StackLayout>
                     </ViewCell>
-                    <!--<TextCell 
-                        Text="{Binding Name}" 
-                        TextColor="{StaticResource blueColor}"/>-->
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
 
 </ContentPage>
-
-<!--SelectedItem="{Binding SelectedUser, Mode=TwoWay}"-->

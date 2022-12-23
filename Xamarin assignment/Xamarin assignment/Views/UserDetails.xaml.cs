@@ -8,11 +8,11 @@ namespace Xamarin_assignment.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserDetails : ContentPage
     {
-        public static User _selectedUser { get; set; }
+        public static User SelectedUser { get; set; }
         public UserDetails()
         {
             InitializeComponent();
-            BindingContext = new UserDetailsVM(_selectedUser);
+            BindingContext = new UserDetailsVM(SelectedUser);
         }
     }
 }

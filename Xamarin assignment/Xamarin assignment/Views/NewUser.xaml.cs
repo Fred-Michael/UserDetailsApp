@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin_assignment.ViewModels;
 
 namespace Xamarin_assignment
 {
@@ -9,6 +10,7 @@ namespace Xamarin_assignment
         public NewUser()
         {
             InitializeComponent();
+            BindingContext = new NewUserVM();
         }
     }
 }
