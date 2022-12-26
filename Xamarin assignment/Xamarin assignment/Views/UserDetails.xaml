@@ -19,11 +19,11 @@
                Text="{Binding Address}"
                TextColor="{StaticResource blueColor}" />
 
-            <!--<Picker x:Name="update_sex_picker"
-                Title="Select your Sex"
-                ItemsSource="{Binding UserSexList}"
-                SelectedItem="{Binding SelectedSex}"
-                TextColor="{StaticResource blueColor}" />-->
+            <Picker x:Name="update_sex_picker"
+                    Title="Select your sex"
+                    ItemsSource="{Binding UserSexList}"
+                    SelectedItem="{Binding SelectedSex}"
+                    TextColor="{StaticResource blueColor}" />
 
             <Entry Placeholder="Edit your phone number" 
                x:Name="update_user_number" 

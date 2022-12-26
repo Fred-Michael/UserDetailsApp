@@ -49,13 +49,24 @@ namespace Xamarin_assignment.Services
             }
         }
 
-        public static int SaveUser(SQLiteConnection connection, User user)
+        public static void SaveUser(User user)
         {
-            connection.CreateTable<User>();
-            var rows = connection.Insert(user);
-            connection.Close();
+            using (SQLiteConnection conn = new SQLiteConnection(App.databaseLocation))
+            {
+                conn.CreateTable<User>();
+                result = conn.Insert(user);
 
-            return rows > 0 ? 1 : 0;
+                if (result == 1)
+                {
+                    App.Current.MainPage.DisplayAlert("Success", "A new user has been added to the db", "OK");
+                    App.Current.MainPage.Navigation.PopToRootAsync();
+                }
+                else
+                {
+                    App.Current.MainPage.DisplayAlert("Failure", "Unable to add new user to the db", "OK");
+                    App.Current.MainPage.Navigation.PopToRootAsync();
+                }
+            }
         }
     }
 }

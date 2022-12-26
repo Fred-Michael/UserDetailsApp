@@ -1,11 +1,9 @@
-﻿using Plugin.Media;
-using SQLite;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using Xamarin_assignment.Models;
+using Xamarin_assignment.Services;
 
 namespace Xamarin_assignment.ViewModels
 {
@@ -32,26 +30,23 @@ namespace Xamarin_assignment.ViewModels
             get => _name;
         }
 
-        //private List<string> ListOfSex = new List<string>() { Sex.Female, Sex.Male };
-
-        //public IList<string> UserSexList { get => ListOfSex; }
-        private ObservableCollection<string> _listOfSex = new ObservableCollection<string> 
-        { 
-            Sex.Female.ToString(), 
+        private ObservableCollection<string> _listOfSex = new ObservableCollection<string>
+        {
+            Sex.Female.ToString(),
             Sex.Male.ToString()
         };
 
         public ObservableCollection<string> UserSexList
         {
-            get => _listOfSex; 
+            get => _listOfSex;
             set
             {
                 _listOfSex = value;
             }
         }
 
-        private string _selectedSex;
-        public string SelectedSex
+        private Sex _selectedSex;
+        public Sex SelectedSex
         {
             get => _selectedSex;
             set
@@ -81,7 +76,6 @@ namespace Xamarin_assignment.ViewModels
         public NewUserVM()
         {
             SaveUserCommand = new Command(SaveUser);
-            //AddUserPictureCommand = new Command(AddPicture);
         }
 
         private void SaveUser()
@@ -94,50 +88,7 @@ namespace Xamarin_assignment.ViewModels
                 PhoneNumber = PhoneNumber
             };
 
-            int result = 0;
-            using (SQLiteConnection conn = new SQLiteConnection(App.databaseLocation))
-            {
-                conn.CreateTable<User>();
-                result = conn.Insert(user);
-            }
-
-            if (result == 1)
-            {
-                App.Current.MainPage.DisplayAlert("Success", "A new user has been added to the db", "OK");
-                App.Current.MainPage.Navigation.PopToRootAsync();
-            }
-            else
-            {
-                App.Current.MainPage.DisplayAlert("Failure", "Unable to add new user to the db", "OK");
-                App.Current.MainPage.Navigation.PopToRootAsync();
-            }
+            UserService.SaveUser(user);
         }
-
-        //private async void AddPicture()
-        //{
-        //    try
-        //    {
-        //        var photo = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions()
-        //        {
-        //            AllowCropping = true,
-        //            DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Rear,
-        //            Directory = "Xamarin_assignment",
-        //            SaveToAlbum = true,
-        //            CompressionQuality = 85
-        //        });
-
-        //        if (photo != null)
-        //        {
-        //            UserImage.Source = ImageSource.FromStream(() =>
-        //            {
-        //                return photo.GetStream();
-        //            });
-        //        }
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
-        //    }
-        //}
     }
 }

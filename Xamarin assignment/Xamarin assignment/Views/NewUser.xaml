@@ -46,11 +46,6 @@
                Text="{Binding PhoneNumber}"
                TextColor="{StaticResource blueColor}"/>
 
-        <Button x:Name="addUserPictureButton" 
-                Text="Add Picture"
-                Command="{Binding AddUserPictureCommand}"
-                BackgroundColor="{StaticResource blueColor}"/>
-
         <Button x:Name="saveUserButton" 
                 Text="Save"
                 Command="{Binding SaveUserCommand}"

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using Xamarin_assignment.Models;
@@ -38,11 +39,32 @@ namespace Xamarin_assignment.ViewModels
             get => _address;
         }
 
-        private string _sex;
-        public string Sex
+        private ObservableCollection<string> _listOfSex = new ObservableCollection<string> 
         {
-            set { _sex = value; OnPropertyChanged(); }
-            get => _sex;
+            Sex.Female.ToString(),
+            Sex.Male.ToString()
+        };
+        public ObservableCollection<string> UserSexList
+        {
+            get => _listOfSex;
+            set 
+            {
+                _listOfSex = value; 
+            }
+        }
+
+        private Sex _selectedSex;
+        public Sex SelectedSex
+        {
+            get => _selectedSex;
+            set
+            {
+                if (_selectedSex != value)
+                {
+                    _selectedSex = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
         private string _phoneNumber;
@@ -89,7 +111,10 @@ namespace Xamarin_assignment.ViewModels
         {
             Name = user == null ? "" : user.Name;
             Address = user == null ? "" : user.Address;
-            //Sex = user.Sex;
+            if (user.Sex.ToString() == "Female")
+                SelectedSex = user.Sex;
+            else
+                SelectedSex = user.Sex;
             PhoneNumber = user == null ? "" : user.PhoneNumber;
         }
 
@@ -97,7 +122,7 @@ namespace Xamarin_assignment.ViewModels
         {
             _selectedUser.Name = Name;
             _selectedUser.Address = Address;
-            //_selectedUser.Sex = update_user_sex.Text;
+            _selectedUser.Sex = SelectedSex;
             _selectedUser.PhoneNumber = PhoneNumber;
             return _selectedUser;
         }
