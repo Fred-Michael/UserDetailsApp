@@ -8,8 +8,7 @@ namespace Xamarin_assignment.Services
     public class UserService
     {
         private static int result = 0;
-        private static string PhotoPath = null;
-        private static string ImageLocation = "C:/Users/hp/source/repos/Xamarin_assignment/Xamarin_assignment/Xamarin_assignment/Assets/Images";
+        
         public static ObservableCollection<User> GetAllUsers()
         {
             using (SQLiteConnection conn = new SQLiteConnection(App.databaseLocation))
