@@ -1,5 +1,4 @@
 ﻿using Plugin.Media;
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -106,32 +105,6 @@ namespace Xamarin_assignment.ViewModels
             await CrossMedia.Current.Initialize();
 
             UserImage = await PhotoService.SavePicture();
-
-            //if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-            //{
-            //    await App.Current.MainPage.DisplayAlert("Error", "No camera available", "OK");
-            //    return;
-            //}
-
-            //var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-            //{
-            //    Directory = "Sample",
-            //    PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small,
-            //    Name = $"{DateTime.Now}_photo.jpg"
-            //});
-
-            //if (file == null)
-            //    return;
-
-            //UserImage = ImageSource.FromStream(() =>
-            //{
-            //    return file.GetStream();
-            //});
         }
-
-        //private void DisplayPhoto(string photoPath)
-        //{
-        //    //
-        //}
     }
 }

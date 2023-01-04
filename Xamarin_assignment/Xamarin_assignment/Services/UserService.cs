@@ -1,10 +1,7 @@
 ﻿using SQLite;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Xamarin_assignment.Models;
-using Xamarin.Forms.PlatformConfiguration;
 
 namespace Xamarin_assignment.Services
 {
@@ -64,7 +61,7 @@ namespace Xamarin_assignment.Services
                 if (result == 1)
                 {
                     App.Current.MainPage.DisplayAlert(
-                        "Success", 
+                        "Success",
                         "A new user has been added to the db",
                         "OK");
                     App.Current.MainPage.Navigation.PopToRootAsync();
@@ -72,35 +69,12 @@ namespace Xamarin_assignment.Services
                 else
                 {
                     App.Current.MainPage.DisplayAlert(
-                        "Failure", 
+                        "Failure",
                         "Unable to add new user to the db",
                         "OK");
                     App.Current.MainPage.Navigation.PopToRootAsync();
                 }
             }
-        }
-
-        public static async Task<string> TakePhotoAsync(FileResult photo)
-        {
-            if (photo == null)
-            {
-                return null;
-            }
-
-            // save the file into local storage
-            //var hold = await FileSystem.OpenAppPackageFileAsync(ImageLocation);
-            string imageFile = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
-            string first = Path.GetFullPath(ImageLocation);
-            //string imageFile = Path.Combine(ImageLocation, photo.FileName);
-            string trimmed = first.TrimStart('/');
-            var hold = 1;
-            using (Stream stream = await photo.OpenReadAsync())
-            using (FileStream newStream = File.OpenWrite(trimmed))
-            {
-                await stream.CopyToAsync(newStream);
-            }
-
-            return PhotoPath = trimmed;
         }
     }
 }
