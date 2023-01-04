@@ -1,0 +1,34 @@
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\bin\Debug\netstandard2.0\Xamarin_assignment.deps.json
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\bin\Debug\netstandard2.0\Xamarin_assignment.dll
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\bin\Debug\netstandard2.0\Xamarin_assignment.pdb
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin_assignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Views\App.xaml.g.cs
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Views\NewUser.xaml.g.cs
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Views\UserDetails.xaml.g.cs
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin_assignment.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin_assignment.AssemblyInfo.cs
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin_assignment.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin_assignment.dll
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\ref\Xamarin_assignment.dll
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin_assignment.pdb
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\Xamarin_assignment.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\Xamarin assignment\Xamarin assignment\Xamarin assignment\obj\Debug\netstandard2.0\refint\Xamarin_assignment.dll
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\bin\Debug\netstandard2.0\Xamarin_assignment.deps.json
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\bin\Debug\netstandard2.0\Xamarin_assignment.dll
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\bin\Debug\netstandard2.0\Xamarin_assignment.pdb
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\Xamarin_assignment.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\Xamarin_assignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\Views\App.xaml.g.cs
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\Views\NewUser.xaml.g.cs
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\Views\UserDetails.xaml.g.cs
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\Xamarin_assignment.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\Xamarin_assignment.AssemblyInfo.cs
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\Xamarin_assignment.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\Xamarin_assignment.dll
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\refint\Xamarin_assignment.dll
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\Xamarin_assignment.pdb
+C:\Users\hp\source\repos\Xamarin_assignment\Xamarin_assignment\Xamarin_assignment\obj\Debug\netstandard2.0\ref\Xamarin_assignment.dll
