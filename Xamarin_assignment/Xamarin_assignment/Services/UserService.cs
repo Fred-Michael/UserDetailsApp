@@ -32,7 +32,9 @@ namespace Xamarin_assignment.Services
                         "No");
 
                     if (choice)
+                    {
                         result = conn.Update(user);
+                    }
                 }
                 else
                 {
@@ -43,7 +45,9 @@ namespace Xamarin_assignment.Services
                     "No");
 
                     if (choice)
+                    {
                         result = conn.Delete(user);
+                    }
                 }
 
                 return result;
@@ -63,6 +67,7 @@ namespace Xamarin_assignment.Services
                         "Success",
                         "A new user has been added to the db",
                         "OK");
+
                     App.Current.MainPage.Navigation.PopToRootAsync();
                 }
                 else
@@ -71,6 +76,7 @@ namespace Xamarin_assignment.Services
                         "Failure",
                         "Unable to add new user to the db",
                         "OK");
+
                     App.Current.MainPage.Navigation.PopToRootAsync();
                 }
             }

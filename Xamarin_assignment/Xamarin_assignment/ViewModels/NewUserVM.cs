@@ -12,6 +12,7 @@ namespace Xamarin_assignment.ViewModels
     {
         public Command SaveUserCommand { get; set; }
         public Command AddUserPictureCommand { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged([CallerMemberName] string name = null) =>
@@ -103,7 +104,6 @@ namespace Xamarin_assignment.ViewModels
         private async void AddPicture()
         {
             await CrossMedia.Current.Initialize();
-
             UserImage = await PhotoService.SavePicture();
         }
     }

@@ -13,6 +13,7 @@ namespace Xamarin_assignment.ViewModels
         public Command UserNavigationCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -35,6 +36,24 @@ namespace Xamarin_assignment.ViewModels
             set
             {
                 _selectedUser = value;
+            }
+        }
+
+        private User _ItemSelected;
+        public User ItemSelected
+        {
+            get
+            {
+                return _ItemSelected;
+            }
+            set
+            {
+                if (_ItemSelected != value)
+                {
+                    _ItemSelected = value;
+                    OnPropertyChanged("ItemSelected");
+                    UserSelected(ItemSelected);
+                }
             }
         }
 

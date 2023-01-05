@@ -13,6 +13,7 @@ namespace Xamarin_assignment.ViewModels
         public Command DeleteUserCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -39,17 +40,18 @@ namespace Xamarin_assignment.ViewModels
             get => _address;
         }
 
-        private ObservableCollection<string> _listOfSex = new ObservableCollection<string> 
+        private ObservableCollection<string> _listOfSex = new ObservableCollection<string>
         {
             Sex.Female.ToString(),
             Sex.Male.ToString()
         };
+
         public ObservableCollection<string> UserSexList
         {
             get => _listOfSex;
-            set 
+            set
             {
-                _listOfSex = value; 
+                _listOfSex = value;
             }
         }
 
@@ -96,7 +98,9 @@ namespace Xamarin_assignment.ViewModels
             int result = await UserService.ActionUser(false, updatedUser);
 
             if (result >= 1)
+            {
                 await App.Current.MainPage.Navigation.PopToRootAsync();
+            }
         }
 
         private async void DeleteUser()
@@ -104,17 +108,25 @@ namespace Xamarin_assignment.ViewModels
             int result = await UserService.ActionUser(true, SelectedUser);
 
             if (result >= 1)
+            {
                 await App.Current.MainPage.Navigation.PopToRootAsync();
+            }
         }
 
         private void SetFields(User user)
         {
             Name = user == null ? "" : user.Name;
             Address = user == null ? "" : user.Address;
+
             if (user.Sex.ToString() == "Female")
+            {
                 SelectedSex = user.Sex;
+            }
             else
+            {
                 SelectedSex = user.Sex;
+            }
+
             PhoneNumber = user == null ? "" : user.PhoneNumber;
         }
 
